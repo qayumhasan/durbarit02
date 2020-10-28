@@ -16,6 +16,11 @@ Vue.filter('striphtml', function (value) {
     return text;
   });
 
+
+
+
+
+
 import VueCarousel from 'vue-carousel';
 Vue.use(VueCarousel);
 
@@ -31,6 +36,7 @@ Vue.filter('sortlength',function (text,length,suffix) {
 
 import Vuelidate from 'vuelidate'
 Vue.use(Vuelidate)
+
 
 import VueIziToast from 'vue-izitoast';
 import 'izitoast/dist/css/iziToast.css';

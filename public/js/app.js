@@ -1948,9 +1948,20 @@ __webpack_require__.r(__webpack_exports__);
     Footer: _components_views_inc_footer__WEBPACK_IMPORTED_MODULE_2__["default"],
     Preloader: _components_views_inc_preloader__WEBPACK_IMPORTED_MODULE_3__["default"]
   },
-  mounted: function mounted() {// this.eventBus.$on('loadingSataus',payload=>{
+  mounted: function mounted() {
+    // this.eventBus.$on('loadingSataus',payload=>{
     //     this.loading = payload;
     // })
+    this.$store.dispatch("customarProfile");
+    axios.interceptors.response.use(function (response) {
+      return response;
+    }, function (error) {
+      if (401 === error.response.status) {
+        localStorage.removeItem("token");
+      } else {
+        return Promise.reject(error);
+      }
+    });
   },
   computed: {},
   metaInfo: function metaInfo() {
@@ -2071,7 +2082,6 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       axios.post('/auth/login', this.user).then(function (response) {
-        console.log(response);
         localStorage.setItem("token", response.data.access_token);
         var loggdedIn = localStorage.getItem('token') || null;
 
@@ -2680,6 +2690,7 @@ __webpack_require__.r(__webpack_exports__);
   mounted: function mounted() {
     if (localStorage.getItem('token') == null) {
       this.$router.push('/login');
+      this.$eventBus.$emit('checkuser', 'no');
     }
 
     return this.$store.dispatch("customarProfile");
@@ -56584,10 +56595,7 @@ var render = function() {
                       [
                         _c(
                           "router-link",
-                          {
-                            class: _vm.closemenu,
-                            attrs: { to: { path: "/service/" + service.id } }
-                          },
+                          { attrs: { to: { path: "/service/" + service.id } } },
                           [
                             _c("i", { staticClass: "fas fa-circle" }),
                             _vm._v(" " + _vm._s(service.name))

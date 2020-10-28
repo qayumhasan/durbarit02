@@ -206,8 +206,10 @@ export default {
             axios.post('/auth/me?token='+localStorage.getItem('token') )
                 .then((response)=>{
                     context.commit('allcustomarInfo',response.data)
+                    
                     resolve(response);
                 })
+                
             })
         },
        

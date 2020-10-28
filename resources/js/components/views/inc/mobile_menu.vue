@@ -14,7 +14,7 @@
                     <div class="collapse" id="collapseExample2">
                         <div class="card card-body mobile_sub_menu">
                             <ul>
-                                <li v-for="(service,index) in getservice" :key="index"><router-link :class="closemenu" :to="{ path: '/service/'+service.id}"><i class="fas fa-circle"></i> {{service.name}}</router-link></li>
+                                <li v-for="(service,index) in getservice" :key="index"><router-link  :to="{ path: '/service/'+service.id}"><i class="fas fa-circle"></i> {{service.name}}</router-link></li>
                             </ul>
                         </div>
                     </div>
