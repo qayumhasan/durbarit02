@@ -3323,70 +3323,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'MenuComponent',
@@ -3400,6 +3336,7 @@ __webpack_require__.r(__webpack_exports__);
 
     this.$store.dispatch("allLogo");
     this.$store.dispatch("totalCartdata");
+    this.$store.dispatch("allProject");
     this.$eventBus.$on('totalQty', function (payload) {
       _this.totalqty = payload;
     });
@@ -3413,6 +3350,9 @@ __webpack_require__.r(__webpack_exports__);
     },
     totaldata: function totaldata() {
       return this.totalCartData + this.totalqty;
+    },
+    getservice: function getservice() {
+      return this.$store.getters.getproject;
     }
   },
   components: {
@@ -3462,12 +3402,16 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: 'MobileMenuComponent'
+  name: 'MobileMenuComponent',
+  mounted: function mounted() {
+    this.$store.dispatch("allProject");
+  },
+  computed: {
+    getservice: function getservice() {
+      return this.$store.getters.getproject;
+    }
+  }
 });
 
 /***/ }),
@@ -56399,11 +56343,43 @@ var render = function() {
                           1
                         ),
                         _vm._v(" "),
+                        _c("li", [
+                          _c("a", { attrs: { href: "#service" } }, [
+                            _vm._v("Services")
+                          ]),
+                          _vm._v(" "),
+                          _c("div", { staticClass: "drop_menu" }, [
+                            _c(
+                              "ul",
+                              _vm._l(_vm.getservice, function(service, index) {
+                                return _c(
+                                  "li",
+                                  { key: index },
+                                  [
+                                    _c(
+                                      "router-link",
+                                      {
+                                        attrs: {
+                                          to: { path: "/service/" + service.id }
+                                        }
+                                      },
+                                      [
+                                        _c("i", {
+                                          staticClass: "fas fa-circle"
+                                        }),
+                                        _vm._v(" " + _vm._s(service.name))
+                                      ]
+                                    )
+                                  ],
+                                  1
+                                )
+                              }),
+                              0
+                            )
+                          ])
+                        ]),
+                        _vm._v(" "),
                         _vm._m(0),
-                        _vm._v(" "),
-                        _vm._m(1),
-                        _vm._v(" "),
-                        _vm._m(2),
                         _vm._v(" "),
                         _c(
                           "li",
@@ -56506,7 +56482,7 @@ var render = function() {
                 )
               ]),
               _vm._v(" "),
-              _vm._m(3)
+              _vm._m(1)
             ])
           ])
         ]
@@ -56523,189 +56499,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("li", [
-      _c("a", { attrs: { href: "#service" } }, [_vm._v("Services")]),
-      _vm._v(" "),
-      _c("div", { staticClass: "drop_menu" }, [
-        _c("ul", [
-          _c("li", [
-            _c("a", { attrs: { href: "#" } }, [
-              _c("i", { staticClass: "fas fa-circle" }),
-              _vm._v(" App Development")
-            ])
-          ]),
-          _vm._v(" "),
-          _c("li", [
-            _c("a", { attrs: { href: "#" } }, [
-              _c("i", { staticClass: "fas fa-circle" }),
-              _vm._v(" Web Development")
-            ])
-          ]),
-          _vm._v(" "),
-          _c("li", [
-            _c("a", { attrs: { href: "#" } }, [
-              _c("i", { staticClass: "fas fa-circle" }),
-              _vm._v(" Digital Marketing")
-            ])
-          ]),
-          _vm._v(" "),
-          _c("li", [
-            _c("a", { attrs: { href: "#" } }, [
-              _c("i", { staticClass: "fas fa-circle" }),
-              _vm._v(" SEO")
-            ])
-          ]),
-          _vm._v(" "),
-          _c("li", [
-            _c("a", { attrs: { href: "#" } }, [
-              _c("i", { staticClass: "fas fa-circle" }),
-              _vm._v(" Services1")
-            ])
-          ])
-        ])
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("li", [
       _c("a", { attrs: { href: "#work" } }, [_vm._v("Portfolio")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("li", { staticClass: "active" }, [
-      _c("a", { attrs: { href: "#" } }, [_vm._v("Mega Menu")]),
-      _vm._v(" "),
-      _c("div", { staticClass: "mega_menu" }, [
-        _c("div", { staticClass: "row" }, [
-          _c("div", { staticClass: "col-sm-4" }, [
-            _c("div", { staticClass: "mega_list" }, [
-              _c("ul", [
-                _c("li", [
-                  _c("a", { attrs: { href: "#" } }, [
-                    _c("i", { staticClass: "fas fa-circle" }),
-                    _vm._v(" mega col2")
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("li", [
-                  _c("a", { attrs: { href: "#" } }, [
-                    _c("i", { staticClass: "fas fa-circle" }),
-                    _vm._v(" mega col2")
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("li", [
-                  _c("a", { attrs: { href: "#" } }, [
-                    _c("i", { staticClass: "fas fa-circle" }),
-                    _vm._v(" mega col2")
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("li", [
-                  _c("a", { attrs: { href: "#" } }, [
-                    _c("i", { staticClass: "fas fa-circle" }),
-                    _vm._v(" mega col2")
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("li", [
-                  _c("a", { attrs: { href: "#" } }, [
-                    _c("i", { staticClass: "fas fa-circle" }),
-                    _vm._v(" mega col2")
-                  ])
-                ])
-              ])
-            ])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "col-sm-4" }, [
-            _c("div", { staticClass: "mega_list" }, [
-              _c("ul", [
-                _c("li", [
-                  _c("a", { attrs: { href: "#" } }, [
-                    _c("i", { staticClass: "fas fa-circle" }),
-                    _vm._v(" mega col2")
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("li", [
-                  _c("a", { attrs: { href: "#" } }, [
-                    _c("i", { staticClass: "fas fa-circle" }),
-                    _vm._v(" mega col2")
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("li", [
-                  _c("a", { attrs: { href: "#" } }, [
-                    _c("i", { staticClass: "fas fa-circle" }),
-                    _vm._v(" mega col2")
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("li", [
-                  _c("a", { attrs: { href: "#" } }, [
-                    _c("i", { staticClass: "fas fa-circle" }),
-                    _vm._v(" mega col2")
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("li", [
-                  _c("a", { attrs: { href: "#" } }, [
-                    _c("i", { staticClass: "fas fa-circle" }),
-                    _vm._v(" mega col2")
-                  ])
-                ])
-              ])
-            ])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "col-sm-4" }, [
-            _c("div", { staticClass: "mega_list" }, [
-              _c("ul", [
-                _c("li", [
-                  _c("a", { attrs: { href: "#" } }, [
-                    _c("i", { staticClass: "fas fa-circle" }),
-                    _vm._v(" mega col3 ")
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("li", [
-                  _c("a", { attrs: { href: "#" } }, [
-                    _c("i", { staticClass: "fas fa-circle" }),
-                    _vm._v(" mega col3 ")
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("li", [
-                  _c("a", { attrs: { href: "#" } }, [
-                    _c("i", { staticClass: "fas fa-circle" }),
-                    _vm._v(" mega col3 ")
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("li", [
-                  _c("a", { attrs: { href: "#" } }, [
-                    _c("i", { staticClass: "fas fa-circle" }),
-                    _vm._v(" mega col3 ")
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("li", [
-                  _c("a", { attrs: { href: "#" } }, [
-                    _c("i", { staticClass: "fas fa-circle" }),
-                    _vm._v(" mega col3 ")
-                  ])
-                ])
-              ])
-            ])
-          ])
-        ])
-      ])
     ])
   },
   function() {
@@ -56763,9 +56557,52 @@ var render = function() {
           1
         ),
         _vm._v(" "),
-        _vm._m(0),
-        _vm._v(" "),
-        _vm._m(1),
+        _c("li", [
+          _c(
+            "a",
+            {
+              attrs: {
+                "data-toggle": "collapse",
+                href: "#collapseExample2",
+                role: "button"
+              }
+            },
+            [_vm._v("Services")]
+          ),
+          _vm._v(" "),
+          _c(
+            "div",
+            { staticClass: "collapse", attrs: { id: "collapseExample2" } },
+            [
+              _c("div", { staticClass: "card card-body mobile_sub_menu" }, [
+                _c(
+                  "ul",
+                  _vm._l(_vm.getservice, function(service, index) {
+                    return _c(
+                      "li",
+                      { key: index },
+                      [
+                        _c(
+                          "router-link",
+                          {
+                            class: _vm.closemenu,
+                            attrs: { to: { path: "/service/" + service.id } }
+                          },
+                          [
+                            _c("i", { staticClass: "fas fa-circle" }),
+                            _vm._v(" " + _vm._s(service.name))
+                          ]
+                        )
+                      ],
+                      1
+                    )
+                  }),
+                  0
+                )
+              ])
+            ]
+          )
+        ]),
         _vm._v(" "),
         _c(
           "li",
@@ -56818,87 +56655,37 @@ var render = function() {
           1
         ),
         _vm._v(" "),
-        _vm._m(2),
+        _c(
+          "li",
+          [
+            _c(
+              "router-link",
+              { staticClass: "closemenu", attrs: { to: "/login" } },
+              [_c("i", { staticClass: "fas fa-user" }), _vm._v(" Login")]
+            )
+          ],
+          1
+        ),
         _vm._v(" "),
-        _vm._m(3)
+        _c(
+          "li",
+          [
+            _c(
+              "router-link",
+              { staticClass: "closemenu", attrs: { to: "/login" } },
+              [
+                _c("i", { staticClass: "fas fa-sign-in-alt" }),
+                _vm._v(" Sign Up")
+              ]
+            )
+          ],
+          1
+        )
       ])
     ])
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("li", [_c("a", { attrs: { href: "#" } }, [_vm._v("Price")])])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("li", [
-      _c(
-        "a",
-        {
-          attrs: {
-            "data-toggle": "collapse",
-            href: "#collapseExample2",
-            role: "button"
-          }
-        },
-        [_vm._v("About Company")]
-      ),
-      _vm._v(" "),
-      _c(
-        "div",
-        { staticClass: "collapse", attrs: { id: "collapseExample2" } },
-        [
-          _c("div", { staticClass: "card card-body mobile_sub_menu" }, [
-            _c("ul", [
-              _c("li", [
-                _c("a", { attrs: { href: "#" } }, [_vm._v("About Us")])
-              ]),
-              _vm._v(" "),
-              _c("li", [
-                _c("a", { attrs: { href: "#" } }, [_vm._v("Our Pricelist")])
-              ]),
-              _vm._v(" "),
-              _c("li", [
-                _c("a", { attrs: { href: "#" } }, [_vm._v("Why Choose Us")])
-              ]),
-              _vm._v(" "),
-              _c("li", [
-                _c("a", { attrs: { href: "#" } }, [_vm._v("Work Sample")])
-              ])
-            ])
-          ])
-        ]
-      )
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("li", [
-      _c("a", { attrs: { href: "login.html" } }, [
-        _c("i", { staticClass: "fas fa-user" }),
-        _vm._v(" Login")
-      ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("li", [
-      _c("a", { attrs: { href: "signup.html" } }, [
-        _c("i", { staticClass: "fas fa-sign-in-alt" }),
-        _vm._v(" Sign Up")
-      ])
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 

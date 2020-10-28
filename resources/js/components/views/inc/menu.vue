@@ -23,11 +23,8 @@
                                         <a href="#service">Services</a>
                                         <div class="drop_menu">
                                             <ul>
-                                                <li><a href="#"><i class="fas fa-circle"></i> App Development</a></li>
-                                                <li><a href="#"><i class="fas fa-circle"></i> Web Development</a></li>
-                                                <li><a href="#"><i class="fas fa-circle"></i> Digital Marketing</a></li>
-                                                <li><a href="#"><i class="fas fa-circle"></i> SEO</a></li>
-                                                <li><a href="#"><i class="fas fa-circle"></i> Services1</a></li>
+                                                <li v-for="(service,index) in getservice" :key="index"><router-link :to="{ path: '/service/'+service.id}"><i class="fas fa-circle"></i> {{service.name}}</router-link></li>
+                                                
                                             </ul>
                                         </div>
 
@@ -36,68 +33,7 @@
                                         <a href="#work">Portfolio</a>
                                     </li>
 
-                                    <li class="active"><a href="#">Mega Menu</a>
-                                        <div class="mega_menu">
-                                            <div class="row">
-                                                <div class="col-sm-4">
-                                                    <div class="mega_list">
-                                                        <ul>
-
-                                                            <li><a href="#"><i class="fas fa-circle"></i> mega col2</a>
-                                                            </li>
-                                                            <li><a href="#"><i class="fas fa-circle"></i> mega col2</a>
-                                                            </li>
-                                                            <li><a href="#"><i class="fas fa-circle"></i> mega col2</a>
-                                                            </li>
-                                                            <li><a href="#"><i class="fas fa-circle"></i> mega col2</a>
-                                                            </li>
-                                                            <li><a href="#"><i class="fas fa-circle"></i> mega col2</a>
-                                                            </li>
-
-                                                        </ul>
-                                                    </div>
-                                                </div>
-
-                                                <div class="col-sm-4">
-                                                    <div class="mega_list">
-                                                        <ul>
-
-                                                            <li><a href="#"><i class="fas fa-circle"></i> mega col2</a>
-                                                            </li>
-                                                            <li><a href="#"><i class="fas fa-circle"></i> mega col2</a>
-                                                            </li>
-                                                            <li><a href="#"><i class="fas fa-circle"></i> mega col2</a>
-                                                            </li>
-                                                            <li><a href="#"><i class="fas fa-circle"></i> mega col2</a>
-                                                            </li>
-                                                            <li><a href="#"><i class="fas fa-circle"></i> mega col2</a>
-                                                            </li>
-
-                                                        </ul>
-                                                    </div>
-                                                </div>
-
-                                                <div class="col-sm-4">
-                                                    <div class="mega_list">
-                                                        <ul>
-                                                            <li><a href="#"><i class="fas fa-circle"></i> mega col3 </a>
-                                                            </li>
-                                                            <li><a href="#"><i class="fas fa-circle"></i> mega col3 </a>
-                                                            </li>
-                                                            <li><a href="#"><i class="fas fa-circle"></i> mega col3 </a>
-                                                            </li>
-                                                            <li><a href="#"><i class="fas fa-circle"></i> mega col3 </a>
-                                                            </li>
-                                                            <li><a href="#"><i class="fas fa-circle"></i> mega col3 </a>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-
-                                            </div>
-                                        </div>
-
-                                    </li>
+                                    
                                     <li>
 
                                         <router-link :to="{ name: 'teams' }">Our Team</router-link>
@@ -150,7 +86,7 @@
             </div>
         </div>
     </section>
-    <MobileMenu/>
+    <MobileMenu></MobileMenu>
     </div>
 </template>
 
@@ -169,6 +105,7 @@ export default {
     mounted(){
         this.$store.dispatch("allLogo");
         this.$store.dispatch("totalCartdata");
+        this.$store.dispatch("allProject");
         this.$eventBus.$on('totalQty', (payload) => {
                     this.totalqty = payload 
                     }) 
@@ -186,6 +123,9 @@ export default {
         totaldata(){
             return this.totalCartData + this.totalqty;
             },
+        getservice() {
+      return this.$store.getters.getproject;
+    },
         
     },
    
