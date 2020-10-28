@@ -47,6 +47,21 @@ export default {
         //     this.loading = payload;
         // })
         
+        this.$store.dispatch("customarProfile")
+          axios.interceptors.response.use(function (response) {
+            
+                return response;
+            }, function (error) {
+
+                
+                if (401 === error.response.status) {
+                   localStorage.removeItem("token");
+                } else {
+                    return Promise.reject(error);
+                }
+            });
+            
+        
    
         
     },

@@ -274,14 +274,18 @@ export default {
     mounted(){
         if(localStorage.getItem('token') == null){
             this.$router.push('/login');
+            this.$eventBus.$emit('checkuser', 'no')
         }
-         return this.$store.dispatch("customarProfile");
+        return this.$store.dispatch("customarProfile")
+
+        
+         
 
 
     },
     methods:{
         userLogout(){
-             window.axios.defaults.headers.common['Authorization'] ='Bearer ' +localStorage.getItem('token'); 
+            window.axios.defaults.headers.common['Authorization'] ='Bearer ' +localStorage.getItem('token'); 
             localStorage.removeItem("token");
             this.$router.push('/login');
             this.$eventBus.$emit('checkuser', 'no')
@@ -293,7 +297,8 @@ export default {
             //         this.$router.push('/login');
             //     })
              
-        }
+        },
+
     },
     components:{
         MyProfile
@@ -301,7 +306,8 @@ export default {
     computed:{
         getProfile(){
             return this.$store.getters.getProfile;
-        }
+        },
+        
     }
 
 }

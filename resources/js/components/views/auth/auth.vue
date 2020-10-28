@@ -83,7 +83,7 @@ export default {
             
               axios.post('/auth/login',this.user)
                 .then((response)=>{
-                    console.log(response)
+                    
                     localStorage.setItem("token",response.data.access_token)
                     var loggdedIn =localStorage.getItem('token') || null;
                     this.$router.push('/deshboard');
